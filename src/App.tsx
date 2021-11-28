@@ -3,18 +3,21 @@ import React, { useState, useEffect } from 'react';
 //import ReactDOM from 'react-dom';
 import { Layout, Menu, Modal, Button } from 'antd';
 import { HomeOutlined, CodeSandboxOutlined, UserOutlined } from '@ant-design/icons';
+import backgroundGIF from './image/home-background.gif'
 
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  useLocation
 } from "react-router-dom";
 
-import NavBar from './NavBar';
+import NavBar from './component/NavBar';
 import About from './About';
 import Home from './Home';
 import Projects from './Projects';
+import { url } from 'inspector';
 
 const { Header, Content, Footer } = Layout;
 
@@ -28,25 +31,19 @@ function App() {
   const handleOk = () => {
     setIsModalVisible(false);
   };
+  
 
 
 
   return (
     <Router>
-      <Modal title="Welcome to My Portfolio"
-        visible={isModalVisible}
-        onOk={handleOk}
-        footer={<Button key="ok" onClick={handleOk} type="primary">
-          Ok
-        </Button>}>
-        <p>Some contents...</p>
-      </Modal>
-      <Layout className="layout">
-        <Header>
-          <div className="logo" />
+      
+      <Layout className="layout" >
+        <Header style={{padding: '0 0'}}>
+          {/* <div className="logo" /> */}
           <NavBar />
         </Header>
-        <Content style={{ padding: '0 64px' }}>
+        <Content className="page-content" style={{alignItems:"center", backgroundPosition:"center", backgroundSize: 'cover'}}>
           <div className="site-layout-content">
             <Switch>
               <Route path="/" exact><Home /></Route>
