@@ -57,6 +57,12 @@
   display: none;
 }
 
+.project-modal {
+  
+  max-width: 900px;
+  
+}
+
 @media (max-width:720px) {
   .desktop-navbar {
     display: none;
@@ -68,6 +74,9 @@
   }
   .site-layout-content{
     padding: 1vh 3vw;
+  }
+  .project-modal {
+    min-width: 97vw;
   }
 }
 
